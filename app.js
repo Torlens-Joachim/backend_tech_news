@@ -12,7 +12,12 @@ const usersRouter = require("./routes/users");
 var app = express();
 
 const cors = require("cors");
-app.use(cors());
+const corsOptions = {
+  origin: "https://frontend-tech-news.vercel.app", // Remplacez par l'URL de votre frontend
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 app.use(logger("dev"));
 app.use(express.json());
